@@ -17,11 +17,13 @@ spark_dag = DAG(
 )
 
 Extract = SparkSubmitOperator(
-    task_id="spark_submit",
+    task_id="spark-submit",
     application="/spark-scripts/online_retail.py",
-    conn_id="spark_main",
-    packages="org.postgresql:postgresql:42.2.18",
+    conn_id="spark_main",  
+    verbose=True,
+    packages="org.postgresql:postgresql:42.2.18",  
     dag=spark_dag
 )
+
 
 Extract
